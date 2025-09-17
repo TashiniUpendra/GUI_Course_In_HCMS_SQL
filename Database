@@ -1,5 +1,9 @@
 Create database Healh_care_Management_System
-
+Create database HealthCare mANAGEMNT system 
+Create table  doctor (
+DoctorId Varchar (10) not null primary key,
+DocnAME vARCHAR (100)
+fghnkakskhksxhkshxjsxjsbxjsbcjhgdchjsguxs,kxns,xslxjityxfhxgskxs,ssoysursxhsxvjsbxnks
 create table Doctor (
 Doctor_ID varchar (10) not null primary key,
 DocName varchar (100) not null,
