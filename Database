@@ -1,0 +1,68 @@
+Create database Healh_care_Management_System
+
+create table Doctor (
+Doctor_ID varchar (10) not null primary key,
+DocName varchar (100) not null,
+Gender varchar (6) not null,
+Tele int not null,
+Password varchar (20) not null,
+Status varchar (40)
+)
+
+create table Patient (
+PID varchar (10) not null primary key,
+Pname varchar (100) not null,
+Age int not null,
+Gender varchar (6) not null,
+Address varchar (100) not null,
+Tele int not null,
+Password varchar (20) not null)
+
+CREATE TABLE Doctor_Patient (
+Doctor_ID VARCHAR(10) NOT NULL,
+PID VARCHAR(10) NOT NULL,
+PRIMARY KEY (Doctor_ID, PID),
+FOREIGN KEY (Doctor_ID) REFERENCES Doctor(Doctor_ID),
+FOREIGN KEY (PID) REFERENCES Patient(PID)
+)
+
+create table Admin(
+Admin_ID varchar (10) not null primary key,
+Aname varchar (100) not null,
+Gender varchar (6) not null,
+Tele int not null,
+Password varchar (20) not null)
+
+CREATE TABLE Doctor_Admin (
+Doctor_ID VARCHAR(10) NOT NULL,
+Admin_ID VARCHAR(10) NOT NULL,
+PRIMARY KEY (Doctor_ID, Admin_ID ),
+FOREIGN KEY (Doctor_ID) REFERENCES Doctor(Doctor_ID),
+FOREIGN KEY (Admin_ID ) REFERENCES Admin(Admin_ID )
+)
+
+CREATE TABLE Patieant_Admin (
+Doctor_ID VARCHAR(10) NOT NULL,
+PID VARCHAR(10) NOT NULL,
+PRIMARY KEY (Doctor_ID, PID ),
+FOREIGN KEY (Doctor_ID) REFERENCES Doctor(Doctor_ID),
+FOREIGN KEY (PID) REFERENCES Patient(PID)
+)
+
+create table Report(
+RID varchar (10) not null primary key,
+Medicine varchar (100),
+Diagnosis varchar (20),
+Prescribe_test varchar (10),
+BPM int,
+Blood_Group varchar (5),
+PID varchar(10)
+FOREIGN KEY (PID) REFERENCES Patient(PID))
+
+CREATE TABLE Report_Admin (
+RID VARCHAR(10) NOT NULL,
+Admin_ID VARCHAR(10) NOT NULL,
+PRIMARY KEY (RID, Admin_ID ),
+FOREIGN KEY (RID) REFERENCES Report(RID),
+FOREIGN KEY (Admin_ID ) REFERENCES Admin(Admin_ID )
+)
